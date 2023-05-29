@@ -1,0 +1,3 @@
+login="postgres"
+password="27932aliK"
+DSN = 'postgresql://postgres:27932aliK@localhost:5432/publishing_house_db'
