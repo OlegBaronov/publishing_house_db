@@ -30,5 +30,4 @@ for record in data:
 
 
 
-
     session.close()
