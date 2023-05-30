@@ -19,13 +19,9 @@ for record in data:
     'stock': Stock,
     'sale': Sale
     }[record.get('model')]
-
     session.add(model(id=record.get('pk'), **record.get('fields')))
-    pb1 = Publisher(name="publisher")
-    sh1 = Shop(name="name")
-    bk1 = Book(title="title", id_publisher="id_publisher")
-    st1 = Stock(id_book="id_book", id_shop="id_shop", count="count")
-    sl1 = Sale(price="price", date_sale="date_sale", id_stock="id_stock", count="count")
+
+    session.commit()
 
 
 

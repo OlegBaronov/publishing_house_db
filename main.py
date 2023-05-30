@@ -16,8 +16,10 @@ session = Session()
 
 
 subq = session.query(Publisher).filter(Publisher.name == input('Имя издателя: ')).subquery()
-
-q = session.query(Shop.name).join(Stock.id).join(Book.id_publisher).join(subq, Book.id_publisher == subq.c.id)
+subq2 = session.query(Book).join(subq, Book.id_publisher == subq.c.id).subquery()
+subq3 = session.query(Stock).join(subq2, Stock.id_book == subq2.c.id).subquery()
+subq3 = session.query(Stock).join(subq2, Stock.id_book == subq2.c.id).subquery()
+q = session.query(Shop).join(subq3, Shop.id == subq3.c.id_shop)
 
 
 
