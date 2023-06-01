@@ -35,7 +35,8 @@ class Shop(Base):
     id = sq.Column(sq.Integer, primary_key=True)
     name = sq.Column(sq.String(length=40), unique=True)
     stock = relationship(Stock, backref="shop")
-
+    def __str__(self):
+        return f'shop:{self.name}'
 
 class Sale(Base):
     __tablename__ = "sale"
